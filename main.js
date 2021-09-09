@@ -1,9 +1,31 @@
 /** *************************************
  *    Method to run the CoinAPI.js  
- *    and store the results using redi 
+ *    and store the results using mysql 
  * *********************************** */
 
-const RedisBackend = require('./services/backend/RedisBackend')
+const MySQLBackend = require('./services/backend/MySQLBackend')
+
+const run = async () => {
+  const mysqlBackend = new MySQLBackend()
+  return mysqlBackend.max()
+}
+
+run()
+  .then(() => {
+    // console.log(Object.entries(res));
+  })
+  .catch(err => {
+    console.error(err);
+  })
+
+
+
+/** *************************************
+ *    Method to run the CoinAPI.js
+ *    and store the results using redi
+ * *********************************** */
+
+/* const RedisBackend = require('./services/backend/RedisBackend')
 
 const run = async () => {
   const redisBackend = new RedisBackend()
@@ -16,7 +38,7 @@ run()
   })
   .catch(err => {
     console.error(err);
-  })
+  }) */
 
 /** *************************************
  *    Method to run the CoinAPI.js
